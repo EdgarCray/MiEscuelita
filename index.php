@@ -47,6 +47,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Escuelita</title>
+    <link rel="shortcut icon" href="http://localhost/MiEscuelita/Img/icono.png" type="image/x-icon">
         <!-- ============== Remix Icon ===============================-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css" integrity="sha512-/VYneElp5u4puMaIp/4ibGxlTd2MV3kuUIroR3NSQjS2h9XKQNebRQiyyoQKeiGE9mRdjSCIZf9pb7AVJ8DhCg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
@@ -55,7 +56,7 @@ $conn->close();
 </head>
 <body>
     <div class="login">
-        <img src="http://localhost/MiEscuelita/Img/☆.jfif" alt="Imagen" class="login__bg">
+        <img src="http://localhost/MiEscuelita/Img/fondo.jfif" alt="Imagen" class="login__bg">
         <form method="post" class="login__form">
             <h1 class="login__title">Inicio de Sesión</h1>
             <div class="login__inputs">

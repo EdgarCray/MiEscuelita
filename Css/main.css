@@ -3,8 +3,11 @@
 
 /*-- ============== Variables CSS ===============================--*/
 :root {
-    --white-color: hsl(180, 100%, 25%);
+    --white-color: hsl(42.537, 100%, 74%);
+    --pastel-color: hsl(42.537, 100%, 74%);
     --black-color: hsl(0, 0%, 0%);
+    --green-color: hsl(41.364, 53%, 49%);
+    --orange-color: hsl(21.935, 88%, 58%);
 
     /*-- ============== Fuentes y Tipografía ===============================--*/
     --body-font: 'Poppins', sans-serif;
@@ -20,6 +23,10 @@
     margin: 0;
 }
 
+.nav-wrapper a{
+    color: black;
+    font-family: var(--body-font);
+}
 body, input, button {
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
@@ -39,7 +46,17 @@ img {
     border-radius: 5px;
 }
 
-    /*-- ============== Inicio de Sesión ===============================--*/
+.botones  {
+    justify-content: center;
+    margin-left: 50px;
+    padding-left: 120px;
+}
+.botones a {
+    width: 250px;
+    height: 50px;
+    font-size: 12px;
+}
+    /*-- ============== Estilos del formulario ===============================--*/
 .login {
     position: relative;
     height: 100vh;
@@ -70,6 +87,7 @@ img {
     text-align: center;
     font-size: var(--h1-font-size);
     margin-bottom: 1.25rem;
+    color: white;
 }
 
 .login__inputs, login__box {
@@ -99,7 +117,7 @@ img {
 .login__input {
     width: 90%;
     background-color: transparent;
-    color: var(--white-color);
+    color: var(--black-color);
     padding-block: 1rem;
 }
 
@@ -134,7 +152,11 @@ img {
 }
 
 .login__forgot {
-    color: var(--white-color);
+    color: white;
+}
+
+.login__check-label {
+    color: white;
 }
 
 .login__forgot:hover {
@@ -164,8 +186,12 @@ img {
 
 .login__register a:hover {
     text-decoration: underline;
+    color: white;
 }
 
+option {
+    color: black;
+}
         /*-- ============== Registro ===============================--*/
 .browser-default {
     position: relative;
@@ -180,6 +206,43 @@ img {
     margin-top: 50px;
 }
 
+.mensaje {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.mensaje-exito {
+    background-color: #4CAF50;
+    color: #FFF;
+}
+
+.mensaje-error {
+    background-color: #FF5733;
+    color: #FFF;
+}
+
+.button {
+    background-color: var(--white-color);
+    border: none;
+}
+
+        /*-- ============== Tablas ===============================--*/
+.responsive-table {
+    background-color: #ffe082;
+    border-radius: 5px;
+}
+
+.contenedor {
+    width: 98%;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+tbody {
+    background-color: #FFF;
+}
         /*-- ============== Breakpoints ===============================--*/
     /*Para dispositivos medianos*/
 @media screen and (min-width: 760px){

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Escuelita</title>
+    <link rel="shortcut icon" href="http://localhost/MiEscuelita/Img/icono.png" type="image/x-icon">
     <style>
         .mensaje {
             padding: 10px;
@@ -53,18 +54,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Encriptar la contraseña
     $hashedPassword = password_hash($contraseña, PASSWORD_BCRYPT);
 
-    // Preparar la consulta
-    $sql = "INSERT INTO usuario (nombre, usuario, contraseña) VALUES (?, ?, ?)";
+    // Verificar si el usuario ya existe
+    $sql = "SELECT COUNT(*) FROM usuario WHERE usuario = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sss", $nombre, $usuario, $hashedPassword);
-    
-    if ($stmt->execute()) {
-        echo '<div class="mensaje mensaje-exito">Registro exitoso</div>';
-    } else {
-        echo '<div class="mensaje mensaje-error">Error al registrar el usuario: ' . $stmt->error . '</div>';
-    }
-
+    $stmt->bind_param("s", $usuario);
+    $stmt->execute();
+    $stmt->bind_result($count);
+    $stmt->fetch();
     $stmt->close();
+
+    if ($count > 0) {
+        echo '<div class="mensaje mensaje-error">El usuario ya existe</div>';
+    } else {
+        // Preparar la consulta de inserción
+        $sql = "INSERT INTO usuario (nombre, usuario, contraseña) VALUES (?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("sss", $nombre, $usuario, $hashedPassword);
+
+        if ($stmt->execute()) {
+            echo '<div class="mensaje mensaje-exito">Registro exitoso</div>';
+        } else {
+            echo '<div class="mensaje mensaje-error">Error al registrar el usuario: ' . $stmt->error . '</div>';
+        }
+
+        $stmt->close();
+    }
 }
 
 $conn->close();
@@ -72,7 +86,7 @@ $conn->close();
 </head>
 <body>
     <div class="login">
-        <img src="http://localhost/MiEscuelita/Img/☆.jfif" alt="Imagen" class="login__bg">
+        <img src="http://localhost/MiEscuelita/Img/fondo.jfif" alt="Imagen" class="login__bg">
         <form method="post" class="login__form">
             <h1 class="login__title">Registro de Usuario</h1>
             <div class="login__inputs">
